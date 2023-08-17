@@ -1,0 +1,137 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #000;
+}
+
+header {
+    background-color: #000;
+    width: 100%;
+    padding: 15px 4%;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 25%;
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.menu {
+    width: 60%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.menu nav a {
+    color: #acaaaa;
+    text-decoration: none;
+    font-size: 18px;
+    padding-right: 30px;
+    padding-bottom: 8px;
+    position: relative;
+}
+
+.menu nav a::after {    
+    transition: width 0.5s;
+}
+
+.menu nav a:hover::after {
+    width: 30px;
+}
+
+.menu nav a:hover {
+    color: #ffffff;
+}
+
+.menu nav a:nth-last-of-type(1)::after {
+    width: 30px;
+}
+
+#btn-menu {
+    background: transparent;
+    cursor: pointer;
+    border: none;
+}
+
+.linha {
+    width: 40px;
+    height: 3px;
+    background-color: #ffffff;
+    display: block;
+    margin: 10px auto;
+    position: relative;
+    transform-origin: center;
+    transition: 0.3s;
+}
+
+button.ativar .linha:nth-child(1) {
+    transform: translateY(13px) rotate(-45deg);
+    background-color: #ff2500;
+}
+
+button.ativar .linha:nth-child(3) {
+    transform: translateY(-13px) rotate(45deg);
+    background-color: #ff2500;
+}
+
+button.ativar .linha:nth-child(2) {
+    width: 0;
+}
+
+/*Estilização do Menu Mobile*/
+
+.menu-mobile {
+    background-color: #00000071;
+    backdrop-filter: blur(10px); /*Efeito de Vidro/Desfoque*/
+    position: absolute;
+    top: 77px;
+    left: 0;
+    width: 100%;
+    height: 0;    
+    transition: 0.5s;
+    overflow: hidden;
+    text-align: center;
+}
+
+.menu-mobile nav a {
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    padding: 20px 30px;
+    font-size: 20px;
+}
+
+.menu-mobile nav a:hover{
+    background-color: #ffffff3f;
+}
+
+#btn-menu {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+    }
+
+    .menu-mobile.abrir {
+        visibility: visible;
+        height: calc(100vh - 77px);
+    }
+
+    #btn-menu {
+        display: block;
+    }
+}
